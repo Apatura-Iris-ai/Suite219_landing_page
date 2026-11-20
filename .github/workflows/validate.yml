@@ -1,0 +1,27 @@
+name: validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - "vibe/**"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node --check assets/app.js
+      - run: node --check tools/encrypt-content.mjs
+      - run: node --check tools/verify-decrypt.mjs
+      - run: node --check tools/ci-check.mjs
+      - run: node tools/ci-check.mjs
+      - name: Decryption testen (falls Secret gesetzt)
+        if: ${{ secrets.SUITE219_PASSWORD != '' }}
+        env:
+          SUITE219_PASSWORD: ${{ secrets.SUITE219_PASSWORD }}
+        run: node tools/verify-decrypt.mjs --password "$SUITE219_PASSWORD"
