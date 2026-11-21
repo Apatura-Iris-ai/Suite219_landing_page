@@ -13,6 +13,8 @@ der Inhalt liegt verschlüsselt vor, die Klartext-Quelle wird lokal gehalten und
 - Erst nach Eingabe des korrekten Passworts wird der Inhalt im Browser entschlüsselt und angezeigt
   (`assets/app.js`, Web Crypto API). Ein falsches Passwort schlägt durch die GCM-Authentifizierung fehl.
 - Die Seite trägt `<meta name="robots" content="noindex, nofollow">`.
+- Buchungsformular (im verschlüsselten Inhalt): sendet die Anfrage als fertige E-Mail an `info@suite219.de`
+  (`mailto:` im E-Mail-Programm des Kunden – keine Dritt-Server, Daten bleiben in der Firma; DSGVO-Hinweis mit Pflicht-Checkbox im Formular).
 - Design: festlich-glanzvoll (dunkler Hintergrund, Gold-Akzente, animierte Lichtpunkte/Bokeh,
   Konfetti-Effekt beim Entsperren) mit dem Suite-219-Logo.
 

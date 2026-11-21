@@ -115,6 +115,51 @@
     });
   }
 
+  var BOOKING_EMAIL = "info@suite219.de";
+
+  document.addEventListener("submit", function (e) {
+    var form = e.target;
+    if (!form || form.id !== "booking-form") return;
+    e.preventDefault();
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+    var val = function (id) {
+      var el = document.getElementById(id);
+      return el ? el.value.trim() : "";
+    };
+    var name1 = val("bk-name1");
+    var name2 = val("bk-name2");
+    var lines = [
+      "Buchungsanfrage über www.suite219.de",
+      "",
+      "Name 1: " + name1,
+      "Name 2: " + name2,
+      "Straße & Hausnummer: " + val("bk-street"),
+      "PLZ / Ort: " + val("bk-plz") + " " + val("bk-ort"),
+      "Telefon: " + val("bk-phone"),
+      "E-Mail: " + val("bk-email"),
+      "Gewünschtes Datum: " + (val("bk-date") || "-"),
+      "",
+      "Datenschutz-Einwilligung: erteilt (siehe Formular)."
+    ];
+    var subject = "Buchungsanfrage Hochzeit – " + name1 + " & " + name2;
+    var body = lines.join("\n");
+    var href = "mailto:" + BOOKING_EMAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+    var msg = document.getElementById("booking-msg");
+    if (msg) msg.textContent = "Ihr E-Mail-Programm wird geöffnet – bitte die fertige E-Mail an " + BOOKING_EMAIL + " absenden.";
+    var fb = document.getElementById("booking-fallback");
+    var fbText = document.getElementById("booking-fallback-text");
+    if (fb && fbText) {
+      fbText.textContent = "Betreff: " + subject + "\n\n" + body;
+      fb.hidden = false;
+    }
+    window.location.href = href;
+  });
+
   var canvas = document.getElementById("sparkles");
   var ctx = canvas.getContext("2d");
   var dpr = Math.min(window.devicePixelRatio || 1, 2);
