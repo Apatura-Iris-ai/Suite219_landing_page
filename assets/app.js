@@ -160,6 +160,36 @@
     window.location.href = href;
   });
 
+  function openLightbox(src) {
+    var lb = document.getElementById("lightbox");
+    if (!lb) return;
+    var img = lb.querySelector("img");
+    if (img) img.src = src;
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeLightbox() {
+    var lb = document.getElementById("lightbox");
+    if (!lb) return;
+    lb.hidden = true;
+    document.body.style.overflow = "";
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!e.target || !e.target.closest) return;
+    var tileImg = e.target.closest(".gallery .tile img");
+    if (tileImg) {
+      openLightbox(tileImg.src);
+      return;
+    }
+    if (e.target.closest(".lightbox")) closeLightbox();
+  });
+
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeLightbox();
+  });
+
   var canvas = document.getElementById("sparkles");
   var ctx = canvas.getContext("2d");
   var dpr = Math.min(window.devicePixelRatio || 1, 2);

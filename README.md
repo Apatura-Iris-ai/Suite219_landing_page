@@ -15,6 +15,8 @@ der Inhalt liegt verschlüsselt vor, die Klartext-Quelle wird lokal gehalten und
 - Die Seite trägt `<meta name="robots" content="noindex, nofollow">`.
 - Buchungsformular (im verschlüsselten Inhalt): sendet die Anfrage als fertige E-Mail an `info@suite219.de`
   (`mailto:` im E-Mail-Programm des Kunden – keine Dritt-Server, Daten bleiben in der Firma; DSGVO-Hinweis mit Pflicht-Checkbox im Formular).
+- Fotogalerie („Einblicke in unsere Feiern") mit Lightbox: Fotos werden als Base64 **im verschlüsselten Inhalt** eingebettet
+  (nie als öffentliche Dateien im Repo – relevant bei Fotos von Gästen, da das Repo public ist).
 - Design: festlich-glanzvoll (dunkler Hintergrund, Gold-Akzente, animierte Lichtpunkte/Bokeh,
   Konfetti-Effekt beim Entsperren) mit dem Suite-219-Logo.
 
