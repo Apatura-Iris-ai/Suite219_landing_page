@@ -17,6 +17,9 @@ der Inhalt liegt verschlüsselt vor, die Klartext-Quelle wird lokal gehalten und
   (`mailto:` im E-Mail-Programm des Kunden – keine Dritt-Server, Daten bleiben in der Firma; DSGVO-Hinweis mit Pflicht-Checkbox im Formular).
 - Fotogalerie („Einblicke in unsere Feiern") mit Lightbox: Fotos werden als Base64 **im verschlüsselten Inhalt** eingebettet
   (nie als öffentliche Dateien im Repo – relevant bei Fotos von Gästen, da das Repo public ist).
+- Messe-Modus (z. B. Achalm.Hotel Hochzeitsmesse): eigene Überschrift, Messe-Sonderpreis als Badge, einfaches Passwort;
+  QR-Code zum Drucken liegt unter `assets/qr-messe.png` (Raw-URL: `https://raw.githubusercontent.com/<owner>/<repo>/main/assets/qr-messe.png`).
+  Das jeweils aktuelle Passwort wird nicht im Repo veröffentlicht.
 - Design: festlich-glanzvoll (dunkler Hintergrund, Gold-Akzente, animierte Lichtpunkte/Bokeh,
   Konfetti-Effekt beim Entsperren) mit dem Suite-219-Logo.
 
