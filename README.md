@@ -58,8 +58,10 @@ Das Passwort wird nirgends im Klartext gespeichert; zum Ändern einfach neu vers
 
 1. Repository → *Settings → Pages → Source: Deploy from a branch* → Branch `main`, Folder `/ (root)` → Save.
 2. Nach 1–2 Minuten ist die Seite unter `https://<owner>.github.io/<repo>/` live.
-3. Für `www.suite219.de`: Pages → *Custom domain* → `www.suite219.de` eintragen, *Enforce HTTPS* aktivieren.
-   Beim Domain-Anbieter einen CNAME-Eintrag `www` → `<owner>.github.io` (klein) setzen.
+3. Custom Domain (aktuell **messe.suite219.de**): Pages → *Custom domain* → `messe.suite219.de` eintragen, *Enforce HTTPS* aktivieren.
+   Beim Domain-Anbieter (Strato) CNAME `messe` → `<owner>.github.io.` (klein, mit Punkt am Ende) setzen.
+   Die bestehende Hauptseite `www.suite219.de` bleibt dabei unberührt.
+4. Druck-PDF mit QR-Code (zeigt auf die Custom Domain): `print/suite219-messe-a4.pdf`.
 
 ## Sicherheitshinweis
 
